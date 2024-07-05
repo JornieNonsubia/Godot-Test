@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmt7flfamgsc7"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_3itfn"]
+[ext_resource type="PackedScene" uid="uid://c1iqy1553de8f" path="res://Models/Pistol_01/Pistol_01.gltf" id="2_558cp"]
+[ext_resource type="Script" path="res://Scripts/Pistol_01.cs" id="3_ej6ql"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_106lm"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.997399, 0)
+script = ExtResource("1_3itfn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_106lm")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+fov = 80.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
+light_indirect_energy = 10.0
+light_volumetric_fog_energy = 2.0
+light_specular = 1.0
+spot_range = 36.6932
+spot_angle = 42.6128
+
+[node name="Pistol_012" parent="Head/Camera3D" instance=ExtResource("2_558cp")]
+transform = Transform3D(-0.1, 0, -1.50996e-08, 0, 0.1, 0, 1.50996e-08, 0, -0.1, 0.31, -0.195, -0.4)
+script = ExtResource("3_ej6ql")
