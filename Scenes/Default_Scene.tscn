@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://xctjjsisnoby"]
+[gd_scene load_steps=5 format=3 uid="uid://xctjjsisnoby"]
 
 [ext_resource type="PackedScene" uid="uid://cmt7flfamgsc7" path="res://Scenes/Player.tscn" id="1_pu0v4"]
 
+[sub_resource type="Curve" id="Curve_3udeh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.339506, 1), 0.0, 0.0, 0, 0, Vector2(0.592593, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.032967), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_47hmd"]
+curve = SubResource("Curve_3udeh")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3va32"]
-albedo_color = Color(0.159, 0.3, 0.26945, 1)
+albedo_color = Color(0.251855, 0.250738, 0.396491, 1)
+albedo_texture = SubResource("CurveTexture_47hmd")
 uv1_triplanar = true
 
 [node name="World" type="Node3D"]
@@ -15,11 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 use_collision = true
 size = Vector3(20, 0.1, 20)
 material = SubResource("StandardMaterial3D_3va32")
-
-[node name="env" type="Node3D" parent="."]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.667209, 0.744871, 0, -0.744871, 0.667209, 0, 3.06303, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_pu0v4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.426899, 1.29951, -1.16224)
