@@ -10,15 +10,12 @@ public partial class Player : CharacterBody3D
 
 	private float curSpeed;
 	private Node3D _head;
-	private Camera3D _cam;
 	private Node3D _pistol;
 
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		_head = this.GetNode<Node3D>("Head");
-		_cam = GetNode<Camera3D>("Head/Camera3D");
-		_pistol = GetNode<Node3D>("Head/Camera3D/Pistol");
 	}
 
 	//Camera control
@@ -26,12 +23,12 @@ public partial class Player : CharacterBody3D
 	{
 		if (@event is InputEventMouseMotion m)
 		{
-			_head.RotateY(-Mathf.DegToRad(m.Relative.X * mouseSens));
-			_cam.RotateX(-Mathf.DegToRad(m.Relative.Y * mouseSens));
+			RotateY(-Mathf.DegToRad(m.Relative.X * mouseSens));
+			_head.RotateX(-Mathf.DegToRad(m.Relative.Y * mouseSens));
 
-			Vector3 camRot = _cam.Rotation;
-			camRot.X = Mathf.Clamp(camRot.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
-			_cam.Rotation = camRot;
+			Vector3 headRot = _head.Rotation;
+			headRot.X = Mathf.Clamp(headRot.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
+			_head.Rotation = headRot;
 
 
 		}
@@ -67,7 +64,7 @@ public partial class Player : CharacterBody3D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 inputDir = Input.GetVector("left", "right", "forward", "backward");
-		Vector3 direction = (_head.Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		if (direction != Vector3.Zero)
 		{
 			velocity.X = direction.X * curSpeed;
