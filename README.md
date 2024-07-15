@@ -1,17 +1,21 @@
 Checking API and adding some code, preparing for the big project
 
 # TODO
-Check this video and try to re-create scene I want to see 
-https://www.youtube.com/watch?v=VjuyfBaryu8
+    Check this video and try to re-create scene I want to see 
+        https://www.youtube.com/watch?v=VjuyfBaryu8
 
-Maybe game will be low res, at least for now, seems it is easy to work with
+    Maybe game will be low res, at least for now, seems it is easy to work with
 
-brainstorm features.
+    Make or find apropriate weapon model 
 
-Description for now:
+    Finish with character controller prototype
 
-dark enviroment
-waves of enemies
-FPS + Tower defense
+    brainstorm features....
 
-finish with character controller prototype
+
+
+# Description for now:
+
+    > dark enviroment
+    > waves of enemies
+    > FPS + Tower defense, kinda like Endless Dungeon
