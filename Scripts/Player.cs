@@ -11,12 +11,14 @@ public partial class Player : CharacterBody3D
 	private float curSpeed;
 	private Node3D _head;
 	private Camera3D _cam;
+	private Node3D _pistol;
 
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		_head = this.GetNode<Node3D>("Head");
 		_cam = GetNode<Camera3D>("Head/Camera3D");
+		_pistol = GetNode<Node3D>("Head/Camera3D/Pistol");
 	}
 
 	//Camera control
@@ -31,6 +33,11 @@ public partial class Player : CharacterBody3D
 			camRot.X = Mathf.Clamp(camRot.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
 			_cam.Rotation = camRot;
 
+
+		}
+		if (@event is InputEventMouseButton)
+		{
+			GD.Print(@event);
 		}
 	}
 
@@ -39,6 +46,9 @@ public partial class Player : CharacterBody3D
 
 	{
 		Vector3 velocity = Velocity;
+
+		if (Input.IsKeyPressed(Key.Escape))
+			GetTree().Quit();
 
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -72,8 +82,7 @@ public partial class Player : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 
-		if (Input.IsKeyPressed(Key.Escape))
-			GetTree().Quit();
+
 	}
 
 }
