@@ -10,12 +10,11 @@ Checking API and adding some code, preparing for the big project
 
     Finish with character controller prototype
 
-
-brainstorm features....
-
+    brainstorm features....
 
 
-Description for now:
+
+# Description for now:
 
     > dark enviroment
     > waves of enemies
