@@ -11,7 +11,7 @@ public partial class Player : CharacterBody3D
 	private float curSpeed;
 	private Node3D _head;
 	private Node3D _pistol;
-
+	
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -40,7 +40,6 @@ public partial class Player : CharacterBody3D
 
 	//Move Control
 	public override void _PhysicsProcess(double delta)
-
 	{
 		Vector3 velocity = Velocity;
 
@@ -78,8 +77,7 @@ public partial class Player : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
-
-
+		
 	}
 
 }

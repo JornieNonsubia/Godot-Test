@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmt7flfamgsc7"]
+[gd_scene load_steps=4 format=3 uid="uid://cmt7flfamgsc7"]
 
-[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_3itfn"]
+[ext_resource type="Script" uid="uid://cac836b8o8yef" path="res://Scripts/Player.cs" id="1_3itfn"]
+[ext_resource type="PackedScene" uid="uid://viy5q45fbnn0" path="res://Scenes/Pistol_SIG.tscn" id="2_kyqiw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_106lm"]
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.997399, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_3itfn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -18,10 +19,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 fov = 80.0
 
 [node name="ItemHolder" type="Node3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.33, -0.7)
+
+[node name="Weapon" parent="Head/ItemHolder" instance=ExtResource("2_kyqiw")]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/ItemHolder"]
-transform = Transform3D(0.995489, 0, 0.0948728, 0, 1, 0, -0.0948728, 0, 0.995489, 0.333, 0.5, 0)
+transform = Transform3D(0.9954894, 0, 0.09487284, 0, 1, 0, -0.09487284, 0, 0.9954894, 0, 0, 0.2)
 light_color = Color(0.98626, 1, 0.818286, 1)
 light_indirect_energy = 10.0
 light_volumetric_fog_energy = 2.0
